@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/04 17:38:29 by mbrousse         ###   ########.fr       */
+/*   Created: 2023/11/07 15:56:36 by mbrousse          #+#    #+#             */
+/*   Updated: 2023/11/11 18:49:05 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
-# include "ft_printf.h"
-# include "libft.h"
+#include "libft.h"
 
-
-#endif
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	if (src < dest)
+	{
+		while (n--)
+			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
+	}
+	else
+		ft_memcpy(dest, src, n);
+	return (dest);
+}

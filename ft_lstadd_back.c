@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/04 17:38:29 by mbrousse         ###   ########.fr       */
+/*   Created: 2023/11/10 18:23:30 by mbrousse          #+#    #+#             */
+/*   Updated: 2023/11/15 10:55:17 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
-# include "ft_printf.h"
-# include "libft.h"
+#include "libft.h"
 
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*pt;
 
-#endif
+	if (!new || !lst)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	pt = *lst;
+	while (pt->next != NULL)
+	{
+		pt = pt->next;
+	}
+	pt->next = new;
+}

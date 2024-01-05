@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/04 17:38:29 by mbrousse         ###   ########.fr       */
+/*   Created: 2023/11/07 14:10:01 by mbrousse          #+#    #+#             */
+/*   Updated: 2023/11/11 18:56:42 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
-# include "ft_printf.h"
-# include "libft.h"
+#include "libft.h"
 
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		((char *)s)[i] = c;
+		i++;
+	}
+	return (s);
+}

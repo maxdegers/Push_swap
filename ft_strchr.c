@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/04 17:38:29 by mbrousse         ###   ########.fr       */
+/*   Created: 2023/11/08 13:51:27 by mbrousse          #+#    #+#             */
+/*   Updated: 2023/11/15 10:57:38 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
-# include "ft_printf.h"
-# include "libft.h"
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		if ((unsigned char)c == s[i])
+			return (&((char *)s)[i]);
+		i++;
+	}
+	if ((unsigned char)c == 0)
+	{
+		return (((char *)s) + i);
+	}
+	return (0);
+}
