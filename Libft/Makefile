@@ -32,8 +32,7 @@ SOURCES = 	ft_isalpha.c\
 			ft_putstr_fd.c\
 			ft_putendl_fd.c\
 			ft_putnbr_fd.c\
-
-BONUS_SOURCES = ft_lstnew.c\
+			ft_lstnew.c\
 			ft_lstadd_front.c\
 			ft_lstsize.c\
 			ft_lstlast.c\
@@ -41,11 +40,13 @@ BONUS_SOURCES = ft_lstnew.c\
 			ft_lstdelone.c\
 			ft_lstclear.c\
 			ft_lstiter.c\
-			ft_lstmap.c
+			ft_lstmap.c\
+			ft_printf.c\
+			hexadecimal.c\
+			pointer.c\
+			ft_printf_utils.c
 
 OBJECTS = ${SOURCES:.c=.o}
-
-BONUS_OBJECTS= ${BONUS_SOURCES:.c=.o}
 
 HEADER_FILE = libft.h
 
@@ -71,8 +72,4 @@ fclean: clean
 
 re: fclean all
 
-bonus : 
-	@make SOURCES="$(SOURCES) $(BONUS_SOURCES)"
-
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
