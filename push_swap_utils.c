@@ -6,7 +6,30 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/05 15:15:19 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:32:14 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+// ft_sa();
+
+// ft_sb();
+
+// ft_ss();
+
+// ft_pa();
+
+// ft_pb();
+
+// ft_ra();
+
+// ft_rb();
+
+// ft_rr();
+
+// ft_rra();
+
+// ft_rrb();
+
+// ft_rrr();
