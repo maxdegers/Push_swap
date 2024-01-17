@@ -6,12 +6,17 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/01/09 16:00:06 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/01/17 09:54:25 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES =	push_swap.c\
-			push_swap_utils.c
+			push_swap_utils.c\
+			error.c\
+			swap.c\
+			push.c\
+			rotate.c\
+			reverce_rotate.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
