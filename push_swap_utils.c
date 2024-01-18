@@ -6,11 +6,15 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 14:12:19 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:34:59 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// ft_last_node()
+
+// ft_new_node()
 
 int	ft_init_stack(t_stack_node **a, char **argv)
 {
@@ -18,12 +22,14 @@ int	ft_init_stack(t_stack_node **a, char **argv)
 	t_stack_node	*node;
 
 	i = 0;
-	while (!argv[i])//
+	while (!argv[i])
 	{
-		if(ft_error(argv[i]) != 0)
-		{
-			
-		}
+		if (ft_error(argv[i]) != 0)
+			return (ft_free_list(a));
+		node = ft_new_node(ft_atoi(argv[i]));
+		if (ft_error_duplicated(a, node->nbr) != 0)
+			return (ft_free_list(a), free(node), 1);
+		node->prev = ft_last_node(a);
+		i++;
 	}
-	
 }
