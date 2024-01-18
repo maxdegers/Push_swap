@@ -6,15 +6,24 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 16:18:48 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:27:43 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list()
+void	print_list(t_stack_node **list) //ave to be remouve
 {
-	
+	t_stack_node	*node;
+
+	node = (*list);
+	ft_printf("Liste :\n");
+	while (node->next != NULL)
+	{
+		ft_printf("%i\n", node->nbr);
+		node = node->next;
+	}
+	return (0);
 }
 
 int	main(int argc, char const **argv)
@@ -36,7 +45,5 @@ int	main(int argc, char const **argv)
 		error = ft_init_stack(&a, argv + 1);
 	if (error != 0)
 		return (1);
-	
-	
 	return (0);
 }
