@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:23:33 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 17:35:01 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:58:19 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)\
 	);
 //Printf
-size_t		ft_printtf_strlen(char *str);
-int			ft_printf(const char *str, ...);
-int			ft_putchar(char c);
-int			ft_putstr(char *str);
-int			ft_putnbr(int n);
-int			ft_putunsigned(unsigned int n);
-int			ft_putpoint(unsigned long long nbr, char *base);
-int			ft_puthexadecimal(unsigned int nbr, char *base);
+size_t			ft_printtf_strlen(char *str);
+int				ft_printf(const char *str, ...);
+int				ft_putchar(char c);
+int				ft_putstr(char *str);
+int				ft_putnbr(int n);
+int				ft_putunsigned(unsigned int n);
+int				ft_putpoint(unsigned long long nbr, char *base);
+int				ft_puthexadecimal(unsigned int nbr, char *base);
 #endif

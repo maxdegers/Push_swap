@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 17:38:58 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:55:14 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ int	main(int argc, char **argv)
 		error = ft_init_stack(&a, argv + 1);
 	if (error != 0)
 		return (1);
+	print_list(a);
+	ft_free_list(a);
 	return (0);
 }
