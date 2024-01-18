@@ -1,49 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   node_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 17:38:58 by mbrousse         ###   ########.fr       */
+/*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
+/*   Updated: 2024/01/18 17:30:01 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_stack_node **list) //ave to be remouve
+t_stack_node	*ft_last_node(t_stack_node **list)
 {
 	t_stack_node	*node;
 
 	node = (*list);
-	ft_printf("Liste :\n");
 	while (node->next != NULL)
-	{
-		ft_printf("%i\n", node->nbr);
 		node = node->next;
-	}
+	return (node);
 }
 
-int	main(int argc, char **argv)
-{
-	int				error;
-	t_stack_node	*a;
-	t_stack_node	*b;
+// ft_new_node()
 
-	a = NULL;
-	b = NULL;
-	error = 1;
-	if (argc < 2 || (argc == 2 && argv[2] == NULL))
-		return (1);
-	else if (argc == 2)
+int	ft_init_stack(t_stack_node **a, char **argv)
+{
+	int				i;
+	t_stack_node	*node;
+
+	i = 0;
+	while (!argv[i])
 	{
-		argv = ft_split(argv[1], ' ');
-		error = ft_init_stack(&a, argv);
+		if (ft_error_str(argv[i]) != 0)
+			return (ft_free_list(a));
+		node = ft_new_node(ft_atoi(argv[i]));
+		if (ft_error_duplicated(a, node->nbr) != 0)
+			return (ft_free_list(a), free(node), 1);
+		node->prev = ft_last_node(a);
+		i++;
 	}
-	else if (argc > 2)
-		error = ft_init_stack(&a, argv + 1);
-	if (error != 0)
-		return (1);
 	return (0);
 }
