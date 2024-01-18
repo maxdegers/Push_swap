@@ -6,14 +6,20 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 15:29:48 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:18:48 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	print_list()
+{
+	
+}
+
 int	main(int argc, char const **argv)
 {
+	int				error;
 	t_stack_node	*a;
 	t_stack_node	*b;
 
@@ -24,14 +30,13 @@ int	main(int argc, char const **argv)
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		ft_init_stack(&a, argv);
+		error = ft_init_stack(&a, argv);
 	}
 	else if (argc > 2)
-		ft_init_stack(&a, argv + 1);
-	while ()
-	{
-		
-	}
+		error = ft_init_stack(&a, argv + 1);
+	if (error != 0)
+		return (1);
+	
 	
 	return (0);
 }
