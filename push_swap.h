@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/17 09:35:56 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:23:31 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int ft_error(int n, char **tab);
 //ft action
 void ft_sa(t_stack_node *a, bool action);
 void ft_sb(t_stack_node *b, bool action);
-void ft_ss(t_stack_node *a, t_stack_node *b, bool action);
+void ft_ss(t_stack_node *a, othert_stack_node *b, bool action);
 void ft_pa(t_stack_node *a, t_stack_node *b, bool action);
 void ft_pb(t_stack_node *a, t_stack_node *b, bool action);
 void ft_ra(t_stack_node *a, bool action);
