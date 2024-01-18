@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/17 11:23:31 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:32:42 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack_node
 	struct stack_node	*next;
 	struct stack_node	*prev;
 }	t_stack_node;
+
 
 int ft_error(int n, char **tab);
 //ft action
