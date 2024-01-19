@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 17:42:55 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/19 09:22:11 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_stack_node
 
 //error
 t_stack_node		*ft_last_node(t_stack_node **list);
+int	ft_free_list(t_stack_node **list);
 int					ft_error_str(char *str);
 int					ft_error_duplicated(t_stack_node **list, int nbr);
 //utils

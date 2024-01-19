@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/01/17 09:54:25 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/01/19 08:48:43 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SOURCES =	push_swap.c\
 			swap.c\
 			push.c\
 			rotate.c\
-			reverce_rotate.c
+			reverce_rotate.c\
+			node_utils.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
@@ -31,7 +32,7 @@ FLAGS =	-Wall -Wextra -Werror
 all: ${NAME}
 
 %.o:%.c  ${HEADER} libft/libft.h
-	${CC} ${FLAGS} -c $< -o $@ -I ${HEADER}
+	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${OBJECTS} Makefile
 	make -C ./libft

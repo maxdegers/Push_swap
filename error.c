@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 17:51:05 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/19 09:41:34 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_error_str(char *str)
 	{
 		if ((str[i] >! 0 && str[i] <! 9) || str[i] != '-')
 		{
-			ft_putstr_fd("Error", 0);
+			ft_putstr_fd("Error\n", 0);
 			return (1);
 		}
 		i++;
@@ -39,7 +39,7 @@ int	ft_free_list(t_stack_node **list)
 		free((*list));
 		(*list) = next;
 	}
-	ft_putstr_fd("Error", 0);
+	ft_putstr_fd("Error\n", 0);
 	return (1);
 }
 
@@ -52,7 +52,7 @@ int	ft_error_duplicated(t_stack_node **list, int nbr)
 	{
 		if (node->nbr == nbr)
 		{
-			ft_putstr_fd("Error", 0);
+			ft_putstr_fd("Error\n", 0);
 			return (1);
 		}
 		node = node->next;
