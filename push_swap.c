@@ -6,29 +6,40 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/23 11:55:43 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:02:35 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_stack_node *list) //ave to be remouve
+void	print_list(t_stack_node *a, t_stack_node *b) //ave to be remouve
 {	
-	ft_printf("Liste :\n");
-	while (list)
+	ft_printf("liste A:\n");
+	while (a)
 	{
-		ft_printf("\t%i\n", list->nbr);
-		list = list->next;
+		ft_printf("\t%i\n", a->nbr);
+		a = a->next;
 	}
+	ft_printf("liste B:\n");
+	if (!b)
+	{
+		ft_printf("\tNULL\n");
+	}
+	while (b)
+	{
+		ft_printf("\t%i\n", b->nbr);
+		b = b->next;
+	}
+	ft_printf("\n");
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	//t_stack_node	*b;
+	t_stack_node	*b;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (argc < 2 || (argc == 2 && argv[1] == NULL))
 	{
 		ft_putstr_fd("Error\n", 2);
@@ -41,7 +52,11 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_init_stack(&a, argv + 1);
-	print_list(a);
+	print_list(a, b);
+	ft_pb(&a, &b, false);
+	print_list(a, b);
+	ft_pa(&a, &b, false);
+	print_list(a, b);
 	ft_free_list(&a);
 	return (0);
 }
