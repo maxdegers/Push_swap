@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:10:25 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/19 09:42:56 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:21:58 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 
 static void ft_swap(t_stack_node **list)
 {
-	*list = NULL;
-	return ;
+	t_stack_node	*tmp;
+	
+	if (!list || !*list)
+		return ;	
+	tmp = (*list);
+	if (!(*list)->next)
+		return ;
+	*list = tmp->next;
+	tmp->prev = *list;
+	tmp->next = (*list)->next;
+	(*list)->next = tmp;
+	tmp = (*list)->prev;
+	tmp->prev = (*list)->next;
+	(*list)->prev = NULL;
 }
 
 void ft_sa(t_stack_node **a, bool action)
