@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/23 18:26:12 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/23 20:10:58 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,15 @@ int	main(int argc, char **argv)
 	else
 		ft_init_stack(&a, argv + 1);
 	print_list(a, b);
-	ft_pb(&a, &b, false);
-	ft_pb(&a, &b, false);
+	ft_rra(&a, false);
 	print_list(a, b);
-	ft_sb(&b, false);
+	ft_rra(&a, false);
+	print_list(a, b);
+	ft_rra(&a, false);
+	print_list(a, b);
+	ft_rra(&a, false);
+	print_list(a, b);
+	ft_rra(&a, false);
 	print_list(a, b);
 	ft_free_list(&a);
 	return (0);
