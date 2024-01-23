@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/19 09:49:10 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:53:53 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,54 @@
 t_stack_node	*ft_last_node(t_stack_node **list)
 {
 	t_stack_node	*node;
-
+	
 	node = (*list);
+	if (!node)
+		return (NULL);
 	while (node->next != NULL)
 		node = node->next;
 	return (node);
 }
 
-t_stack_node	*ft_new_node(int nbr)
+static void	ft_append_node(t_stack_node **a, long nbr)
 {
 	t_stack_node	*node;
+	t_stack_node	*last_node;
 
 	node = malloc(sizeof(t_stack_node));
 	if (!node)
-	{
-		ft_putstr_fd("Error\n", 0);
-		return (NULL);
-	}
+		return ;
 	node->nbr = nbr;
 	node->next = NULL;
-	return (node);
+	last_node = ft_last_node(a);
+	if (!last_node)
+	{
+		(*a) = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node->next = node;
+		node->prev = last_node;
+	}
 }
 
-int	ft_init_stack(t_stack_node **a, char **argv)
+void	ft_init_stack(t_stack_node **a, char **argv)
 {
-	int				i;
-	t_stack_node	*node;
+	size_t	i;
+	long	n;
 
 	i = 0;
-	while (!argv[i])
+	while (argv[i])
 	{
 		if (ft_error_str(argv[i]) != 0)
-			return (ft_free_list(a));
-		node = ft_new_node(ft_atoi(argv[i]));
-		if (!node)
-			return (1);
-		if (ft_error_duplicated(a, node->nbr) != 0)
-			return (ft_free_list(a), free(node), 1);
-		node->prev = ft_last_node(a);
+			exit (ft_free_list(a));
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			exit (ft_free_list(a));
+		if (ft_error_duplicated(a, (int)n) != 0)
+			exit (ft_free_list(a));
+		ft_append_node(a ,n);
 		i++;
 	}
-	return (0);
 }
