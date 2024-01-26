@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/23 11:53:53 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:59:03 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ t_stack_node	*ft_last_node(t_stack_node **list)
 	while (node->next != NULL)
 		node = node->next;
 	return (node);
+}
+size_t	ft_listlen(t_stack_node *list)
+{
+	size_t			i;
+
+	if (!list)
+		return (0);
+	i = 1;
+	while (list->next != NULL)
+	{
+		i++;
+		list = list->next;
+	}
+	return (i);
 }
 
 static void	ft_append_node(t_stack_node **a, long nbr)

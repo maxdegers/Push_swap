@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/01/23 11:48:09 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/01/26 11:20:01 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SOURCES =	push_swap.c\
 			swap.c\
 			push.c\
 			rotate.c\
-			reverce_rotate.c
+			reverce_rotate.c\
+			solve.c
 
 OBJECTS = ${SOURCES:.c=.o}
 

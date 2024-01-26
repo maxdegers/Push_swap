@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/23 20:10:58 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:33:22 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc < 2 || (argc == 2 && argv[1] == NULL))
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (1);
-	}
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
@@ -52,17 +49,15 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_init_stack(&a, argv + 1);
-	print_list(a, b);
-	ft_rra(&a, false);
-	print_list(a, b);
-	ft_rra(&a, false);
-	print_list(a, b);
-	ft_rra(&a, false);
-	print_list(a, b);
-	ft_rra(&a, false);
-	print_list(a, b);
-	ft_rra(&a, false);
-	print_list(a, b);
+	if (!ft_stack_is_sort(a))
+	{
+		if (ft_listlen(a) == 2)
+			ft_sa(&a, false);
+		else if (ft_listlen(a) == 3)
+			ft_sort_three(&a); // FT_SORT_THREE
+		else
+			ft_solve(&a, &b);
+	}
 	ft_free_list(&a);
 	return (0);
 }
