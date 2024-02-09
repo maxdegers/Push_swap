@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/26 12:31:08 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/08 23:40:46 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ typedef struct s_stack_node
 {
 	int					nbr;
 	int					index;
-	int					push_cost;
-	bool				above_mediane;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
+	char				*b_nbr;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }	t_stack_node;
@@ -35,7 +32,7 @@ int					ft_free_list(t_stack_node **list);
 int					ft_error_str(char *str);
 int					ft_error_duplicated(t_stack_node **list, int nbr);
 //utils
-int	ft_atol(const char *nptr);
+int					ft_atol(const char *nptr);
 //node utils
 size_t				ft_listlen(t_stack_node *list);
 t_stack_node		*ft_last_node(t_stack_node **list);

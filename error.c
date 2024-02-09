@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/23 11:54:23 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 00:45:09 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_free_list(t_stack_node **list)
 	while ((*list) != NULL)
 	{
 		next = (*list)->next;
+		free((*list)->b_nbr);
 		free((*list));
 		(*list) = next;
 	}
