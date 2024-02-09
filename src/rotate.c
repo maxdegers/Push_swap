@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:27:31 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 12:03:03 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:19:49 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	ft_rotate(t_stack_node **list)
 {

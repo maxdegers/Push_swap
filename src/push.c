@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:20:11 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 12:04:02 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:19:37 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	ft_push(t_stack_node **start, t_stack_node **end)
 {

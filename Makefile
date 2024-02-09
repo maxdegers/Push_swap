@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/01/26 11:20:01 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/09 13:59:46 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,32 +20,41 @@ SOURCES =	push_swap.c\
 			reverce_rotate.c\
 			solve.c
 
-OBJECTS = ${SOURCES:.c=.o}
+OBJ_D	= objs/
 
-HEADER=	push_swap.h
+SRC_D	= src/
 
-NAME =	push_swap
+OBJECTS = ${SOURCES:%.c=${OBJ_D}%.o}
 
-CC =	cc
+HEADER 	=	includes/push_swap.h
+
+H_D 	= 	.
+
+NAME 	=	push_swap
+
+CC 		=	cc
 
 FLAGS =	-Wall -Wextra -Werror
 
 all: ${NAME}
 
-%.o:%.c  ${HEADER} libft/libft.h
+${OBJ_D}:
+	@mkdir -p ${OBJ_D}
+
+${OBJECTS} : ${OBJ_D}%.o: ${SRC_D}%.c  ${HEADER} libft/libft.h
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}: ${OBJECTS} Makefile
-	make -C ./libft
+${NAME}: ${OBJ_D} ${OBJECTS} Makefile
+	@make --no-print-directory -C ./libft
 	${CC} ${FLAGS} ${OBJECTS} -o ${NAME} -L./libft -lft
 
 clean:
-	make clean -C ./libft
-	rm -f ${OBJECTS} 
+	@make --no-print-directory clean -C ./libft
+	@rm -rf ${OBJ_D} 
 
 fclean: clean
-	make fclean -C ./libft
-	rm -f ${NAME}
+	@make --no-print-directory fclean -C ./libft
+	@rm -f ${NAME}
 
 re: fclean all
 

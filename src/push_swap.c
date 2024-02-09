@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 12:01:09 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:19:32 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	print_list(t_stack_node *a, t_stack_node *b) //ave to be remouve
 {	
@@ -38,7 +38,7 @@ static void	ft_setup(t_stack_node *a, t_stack_node *b)
 	if (!ft_stack_is_sort(a))
 	{
 		if (ft_listlen(a) == 2)
-			ft_sa(&a, false);
+			ft_sa(&a);
 		else if (ft_listlen(a) == 3)
 			ft_sort_three(&a);
 		(void) b;
