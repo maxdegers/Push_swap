@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 16:19:32 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:50:23 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ static void	ft_setup(t_stack_node *a, t_stack_node *b)
 			ft_sa(&a);
 		else if (ft_listlen(a) == 3)
 			ft_sort_three(&a);
-		(void) b;
-		// else
-		// 	ft_solve(&a, &b);
+		else if (ft_listlen(a) <= 5)
+			ft_medium_sort(&a, &b);
+		else
+			ft_solve(&a, &b);
 	}
 	ft_free_list(&a);
 }

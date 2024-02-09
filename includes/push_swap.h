@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 16:16:12 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 16:59:45 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 typedef struct s_stack_node
 {
 	int					nbr;
-	int					index;
 	char				*b_nbr;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
