@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/09 13:59:46 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/09 16:30:37 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ CC 		=	cc
 
 FLAGS =	-Wall -Wextra -Werror
 
-all: ${NAME}
+all: 
+	@make --no-print-directory -C ./libft
+	@make --no-print-directory ${NAME}
 
 ${OBJ_D}:
 	@mkdir -p ${OBJ_D}
@@ -44,8 +46,7 @@ ${OBJ_D}:
 ${OBJECTS} : ${OBJ_D}%.o: ${SRC_D}%.c  ${HEADER} libft/libft.h
 	${CC} ${FLAGS} -c $< -o $@
 
-${NAME}: ${OBJ_D} ${OBJECTS} Makefile
-	@make --no-print-directory -C ./libft
+${NAME}: ${OBJ_D} ${OBJECTS} Makefile libft/libft.a
 	${CC} ${FLAGS} ${OBJECTS} -o ${NAME} -L./libft -lft
 
 clean:
