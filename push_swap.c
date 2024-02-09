@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 00:58:11 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:01:09 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,20 @@ void	print_list(t_stack_node *a, t_stack_node *b) //ave to be remouve
 	ft_printf("\n");
 }
 
-// static int	ft_setup(t_stack_node *a, t_stack_node *b)
-// {
-// 	if (!ft_stack_is_sort(a))
-// 	{
-// 		if (ft_listlen(a) == 2)
-// 			ft_sa(&a, false);
-// 		else if (ft_listlen(a) == 3)
-// 			ft_sort_three(&a); // FT_SORT_THREE
-// 		else
-// 			ft_solve(&a, &b);
-// 	}
-// 	ft_free_list(&a);
-// }
+static void	ft_setup(t_stack_node *a, t_stack_node *b)
+{
+	if (!ft_stack_is_sort(a))
+	{
+		if (ft_listlen(a) == 2)
+			ft_sa(&a, false);
+		else if (ft_listlen(a) == 3)
+			ft_sort_three(&a);
+		(void) b;
+		// else
+		// 	ft_solve(&a, &b);
+	}
+	ft_free_list(&a);
+}
 
 int	main(int argc, char **argv)
 {
@@ -64,7 +65,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_init_stack(&a, argv + 1);
-	print_list(a, b);
-	//ft_setup(a, b);
+	// print_list(a, b);
+	ft_setup(a, b);
 	return (0);
 }

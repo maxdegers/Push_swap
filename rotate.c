@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:27:31 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/23 19:03:22 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:03:03 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,20 @@ static void	ft_rotate(t_stack_node **list)
 	(*list)->prev = NULL;
 }
 
-void	ft_ra(t_stack_node **a, bool action)
+void	ft_ra(t_stack_node **a)
 {
 	ft_rotate(a);
-	if (!action)
-		ft_printf("ra\n");
+	ft_printf("ra\n");
 }
 
-void	ft_rb(t_stack_node **b, bool action)
+void	ft_rb(t_stack_node **b)
 {
 	ft_rotate(b);
-	if (!action)
-		ft_printf("rb\n");
+	ft_printf("rb\n");
 }
-void	ft_rr(t_stack_node **a, t_stack_node **b, bool action)
+void	ft_rr(t_stack_node **a, t_stack_node **b)
 {
 	ft_rotate(a);
 	ft_rotate(b);
-	if (!action)
-		ft_printf("rr\n");
+	ft_printf("rr\n");
 }
