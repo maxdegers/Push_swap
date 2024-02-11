@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 16:50:23 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/11 03:54:59 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_list(t_stack_node *a, t_stack_node *b) //ave to be remouve
 	ft_printf("liste A:\n");
 	while (a)
 	{
-		ft_printf("\t%i\t%s\n", a->nbr, a->b_nbr);
+		ft_printf("\t%i\t%s\t%i\n", a->nbr, a->b_nbr, a->rank);
 		a = a->next;
 	}
 	ft_printf("liste B:\n");
@@ -35,13 +35,16 @@ void	print_list(t_stack_node *a, t_stack_node *b) //ave to be remouve
 
 static void	ft_setup(t_stack_node *a, t_stack_node *b)
 {
-	if (!ft_stack_is_sort(a))
+	int	size;
+
+	size = ft_stack_is_sort(&a);
+	if (size == 0)
 	{
-		if (ft_listlen(a) == 2)
+		if (size == 2)
 			ft_sa(&a);
-		else if (ft_listlen(a) == 3)
+		else if (size == 3)
 			ft_sort_three(&a);
-		else if (ft_listlen(a) <= 5)
+		else if (size <= 5)
 			ft_medium_sort(&a, &b);
 		else
 			ft_solve(&a, &b);
@@ -66,7 +69,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_init_stack(&a, argv + 1);
-	// print_list(a, b);
+	print_list(a, b);
 	ft_setup(a, b);
 	return (0);
 }

@@ -6,23 +6,28 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:14:54 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 17:03:31 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/11 03:52:24 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-bool	ft_stack_is_sort(t_stack_node *list)
+int	ft_stack_is_sort(t_stack_node **list)
 {
-	while (list->next != NULL)
+	t_stack_node	*tmp;
+	int				i;
+
+	i = 0;
+	tmp = *list;
+	while (tmp->next != NULL)
 	{
-		if (list->nbr > list->next->nbr)
-		{
-			return (false);
-		}
-		list = list->next;
+		if (tmp->rank != i)
+			return (0);
+		i++;
+		tmp = tmp->next;
 	}
-	return (true);
+	return (1);
+	
 }
 void	ft_sort_three(t_stack_node **a)
 {
@@ -39,34 +44,56 @@ void	ft_sort_three(t_stack_node **a)
 	return (ft_rra(a), ft_sa(a));
 }
 
+static void	ft_push_sm(t_stack_node **a, t_stack_node **b)
+{
+	int				smal;
+	t_stack_node	*tmp;
+	
+	tmp = *a;
+	smal = tmp->nbr;
+	while (tmp->next != NULL)
+	{
+		if (smal > tmp->nbr)
+			smal = tmp->nbr;
+		tmp = tmp->next;
+	}
+	if (smal > tmp->nbr)
+			smal = tmp->nbr;
+	while ((*a)->nbr != smal)
+	{
+		ft_ra(a);
+	}
+	ft_pb(a, b);
+}
+
 void	ft_medium_sort(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*smalest;
-	int				nbr;
-	while (ft_listlen > 3)
+	int				size;
+	
+	size = ft_listlen(*a);
+	if (size == 4)
 	{
-		smalest = *a;
-		nbr = smalest->nbr;
-		while (smalest->next != NULL)
-		{
-			if (smalest->nbr < nbr)
-				nbr = smalest->nbr;
-			smalest = smalest->next;
-		}
-		ft_pb(a, b);
+		ft_push_sm(a, b);
+		ft_sort_three(a);
+		ft_pa(a, b);
 	}
-	ft_sort_three(a);
-	ft_pa(a, b);
-	ft_pa(a, b);
+	else
+	{
+		ft_push_sm(a, b);
+		ft_push_sm(a, b);
+		ft_sort_three(a);
+		ft_pa(a, b);
+		ft_pa(a, b);
+	}
 }
 
 void	ft_solve(t_stack_node **a, t_stack_node **b)
 {
 	int	i;
-	int	j;
-	int	size;
+	size_t	j;
+	size_t	size;
 	
-	size = ft_listlen(a);
+	size = ft_listlen(*a);
 	i = 8;
 	while (ft_stack_is_sort(a) == 0 && i >= 0)
 	{
@@ -74,8 +101,10 @@ void	ft_solve(t_stack_node **a, t_stack_node **b)
 		while (j < size)
 		{
 			if ((*a)->b_nbr[i] == '0')
+			{
 				if (j != size - 1)
 					ft_pb(a, b);
+			}
 			else
 				ft_ra(a);
 			j++;

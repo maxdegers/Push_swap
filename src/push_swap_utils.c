@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 16:19:26 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/11 03:46:20 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,48 @@ int	ft_atol(const char *nptr)
 		i++;
 	}
 	return (tab * sign);
+}
+
+static t_stack_node	*find_unrank(t_stack_node **list)
+{
+	t_stack_node	*tmp;
+
+	tmp = *list;
+	while (tmp != NULL)
+	{
+		if (tmp->rank == -1)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
+}
+
+static t_stack_node	*ft_findsm(t_stack_node **list)
+{
+	t_stack_node	*smallest;
+	t_stack_node	*tmp;
+
+	tmp = *list;
+	smallest = find_unrank(list);
+	while (tmp != NULL)
+	{
+		if (tmp->nbr < smallest->nbr && tmp->rank == -1)
+			smallest = tmp;
+		tmp = tmp->next;
+	}
+	return (smallest);
+}
+
+void	ft_set_rank(t_stack_node **list)
+{
+	t_stack_node	*tmp;
+	size_t 			i;
+
+	i = 0;
+	while (i < ft_listlen(*list))
+	{
+		tmp = ft_findsm(list);
+		tmp->rank = i;
+		i++;
+	}
 }

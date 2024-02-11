@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 16:19:21 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/11 03:41:09 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static char	*ft_bin(int nbr)
 	char	*binary;
 	int		numbits;
 
-	numbits = sizeof(int) * 8;
-	binary = malloc(numbits + 1);
+	numbits = 8;
+	binary = malloc(sizeof(char) * (numbits + 1));
 	if (!binary)
 		return (NULL);
 	binary[numbits] = '\0';
@@ -69,6 +69,7 @@ static int	ft_append_node(t_stack_node **a, int nbr)
 		return (1);
 	node->nbr = nbr;
 	node->next = NULL;
+	node->rank = -1;
 	node->b_nbr = ft_bin(nbr);
 	if (!node->b_nbr)
 		return (1);
@@ -109,4 +110,5 @@ void	ft_init_stack(t_stack_node **a, char **argv)
 		}
 		i++;
 	}
+	ft_set_rank(a);
 }
