@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 13:10:34 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:12:55 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	ft_setup(t_stack_node *a, t_stack_node *b)
 	size = ft_listlen(a);
 	if (ft_stack_is_sort(&a) == 0)
 	{
-		if (size == 2)
+		if (size == 1);
+		else if (size == 2)
 			ft_sa(&a);
 		else if (size == 3)
 			ft_sort_three(&a);
@@ -65,7 +66,7 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		if (!argv)
+		if (!argv || !argv[0])
 			return (ft_putstr_fd("Error\n", 2), 1);
 		ft_init_stack(&a, argv);
 	}
