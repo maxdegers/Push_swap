@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/11 03:51:10 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:10:10 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ size_t				ft_listlen(t_stack_node *list);
 t_stack_node		*ft_last_node(t_stack_node **list);
 void				ft_init_stack(t_stack_node **a, char **argv);
 //solve
-int					ft_stack_is_sort(t_stack_node **list);
+int					ft_stack_is_sort(t_stack_node **a);
 void				ft_sort_three(t_stack_node **a);
 void				ft_solve(t_stack_node **a, t_stack_node **b);
 void				ft_medium_sort(t_stack_node **a, t_stack_node **b);
+void				ft_medium_small_sort(t_stack_node **a, t_stack_node **b);
 //ft action
 void				ft_sa(t_stack_node **a);
 void				ft_sb(t_stack_node **b);

@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/09 16:30:37 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/13 12:12:42 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ NAME 	=	push_swap
 
 CC 		=	cc
 
-FLAGS =	-Wall -Wextra -Werror
+FLAGS =	-Wall -Wextra -Werror -g3
 
 all: 
 	@make --no-print-directory -C ./libft
@@ -43,7 +43,7 @@ all:
 ${OBJ_D}:
 	@mkdir -p ${OBJ_D}
 
-${OBJECTS} : ${OBJ_D}%.o: ${SRC_D}%.c  ${HEADER} libft/libft.h
+${OBJECTS} : ${OBJ_D}%.o: ${SRC_D}%.c  ${HEADER} libft/libft.h Makefile libft/Makefile
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}: ${OBJ_D} ${OBJECTS} Makefile libft/libft.a
