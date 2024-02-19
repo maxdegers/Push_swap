@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 16:14:54 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 14:02:28 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:16:15 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_stack_is_sort(t_stack_node **a)
 	t_stack_node	*tmp;
 	int				i;
 
+	i = 0;
 	if (*a != NULL)
 		return (0);
-	i = 0;
 	tmp = *a;
 	while (tmp->next != NULL)
 	{
@@ -33,19 +33,19 @@ int	ft_stack_is_sort(t_stack_node **a)
 }
 void	ft_sort_three(t_stack_node **a)
 {
-	if ((*a)->nbr < (*a)->next->nbr && (*a)->next->nbr < (*a)->next->next->nbr)
-		return ;
-	if ((*a)->nbr > (*a)->next->nbr)
-	{
-		if ((*a)->next->nbr > (*a)->next->next->nbr)
-			return (ft_sa(a), ft_rra(a));
-		if ((*a)->nbr < (*a)->next->next->nbr)
-			return (ft_sa(a));
-		return (ft_ra(a));
-	}
-	if ((*a)->nbr > (*a)->next->next->nbr)
-		return (ft_rra(a));
-	return (ft_rra(a), ft_sa(a));
+    if ((*a)->nbr > (*a)->next->nbr)
+    {
+        if ((*a)->next->nbr > (*a)->next->next->nbr)
+            return (ft_sa(a), ft_rra(a));
+        if ((*a)->nbr > (*a)->next->next->nbr)
+            return (ft_ra(a));
+        return (ft_sa(a));
+    }
+    if ((*a)->next->nbr < (*a)->next->next->nbr)
+        return ;
+    if ((*a)->nbr > (*a)->next->next->nbr)
+        return (ft_rra(a));
+    return (ft_rra(a), ft_sa(a));
 }
 
 

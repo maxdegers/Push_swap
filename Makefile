@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 17:38:19 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/13 12:12:42 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/13 19:56:38 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ CC 		=	cc
 
 FLAGS =	-Wall -Wextra -Werror -g3
 
-all: 
+all:
 	@make --no-print-directory -C ./libft
 	@make --no-print-directory ${NAME}
 
