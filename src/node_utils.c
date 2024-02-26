@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/11 03:41:09 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:12:17 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack_node	*ft_last_node(t_stack_node **list)
 {
 	t_stack_node	*node;
-	
+
 	node = (*list);
 	if (!node)
 		return (NULL);
@@ -23,6 +23,7 @@ t_stack_node	*ft_last_node(t_stack_node **list)
 		node = node->next;
 	return (node);
 }
+
 size_t	ft_listlen(t_stack_node *list)
 {
 	size_t			i;
@@ -52,7 +53,12 @@ static char	*ft_bin(int nbr)
 	i = numbits -1;
 	while (i >= 0)
 	{
-		binary[i] = (nbr & 1) ? '1' : '0';
+		if ((nbr & 1) == 1)
+		{
+			binary[i] = '1';
+		}
+		else
+			binary[i] = '0';
 		nbr >>= 1;
 		i--;
 	}
@@ -103,7 +109,7 @@ void	ft_init_stack(t_stack_node **a, char **argv)
 		n = ft_atol(argv[i]);
 		if ((n > INT_MAX || n < INT_MIN)
 			|| (ft_error_duplicated(a, (int)n) != 0)
-			|| (ft_append_node(a ,n) == 1))
+			|| (ft_append_node(a, n) == 1))
 		{
 			ft_free_list(a);
 			exit(1);

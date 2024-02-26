@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/11 03:46:20 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:13:06 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atol(const char *nptr)
 {
-	int	i;
+	int		i;
 	long	tab;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	tab = 0;
@@ -71,7 +71,7 @@ static t_stack_node	*ft_findsm(t_stack_node **list)
 void	ft_set_rank(t_stack_node **list)
 {
 	t_stack_node	*tmp;
-	size_t 			i;
+	size_t			i;
 
 	i = 0;
 	while (i < ft_listlen(*list))

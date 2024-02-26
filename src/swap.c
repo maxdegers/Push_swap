@@ -6,18 +6,18 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:10:25 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/09 16:19:58 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:18:07 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void ft_swap(t_stack_node **list)
+static void	ft_swap(t_stack_node **list)
 {
 	t_stack_node	*tmp;
-	
+
 	if (!list || !*list)
-		return ;	
+		return ;
 	tmp = (*list);
 	if (!(*list)->next)
 		return ;
@@ -30,18 +30,19 @@ static void ft_swap(t_stack_node **list)
 	(*list)->prev = NULL;
 }
 
-void ft_sa(t_stack_node **a)
+void	ft_sa(t_stack_node **a)
 {
 	ft_swap(a);
 	ft_printf("sa\n");
 }
 
-void ft_sb(t_stack_node **b)
+void	ft_sb(t_stack_node **b)
 {
 	ft_swap(b);
 	ft_printf("sb\n");
 }
-void ft_ss(t_stack_node **a, t_stack_node **b)
+
+void	ft_ss(t_stack_node **a, t_stack_node **b)
 {
 	ft_swap(a);
 	ft_swap(b);

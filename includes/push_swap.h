@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 13:10:10 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:19:15 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int					ft_free_list(t_stack_node **list);
 int					ft_error_str(char *str);
 int					ft_error_duplicated(t_stack_node **list, int nbr);
 //utils
-void	ft_set_rank(t_stack_node **list);
+void				ft_set_rank(t_stack_node **list);
 int					ft_atol(const char *nptr);
 //node utils
 size_t				ft_listlen(t_stack_node *list);
