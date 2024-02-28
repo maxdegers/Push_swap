@@ -56,11 +56,22 @@ CC = cc
 
 FLAGS =  -Wall -Wextra -Werror
 
+GREEN                   =       \033[1;32m
+BLUE                    =       \033[1;34m
+RED                             =       \033[1;31m
+YELLOW					=       \033[1;33m
+DEFAULT					       =       \033[0m
+UP					=       "\033[A"
+CUT					         =       "\033[K"
+
 %.o:%.c  ${HEADER_FILE}
+	@echo "$(YELLOW)Compiling [$<]$(DEFAULT)"
 	@${CC} ${FLAGS} -c $< -o $@
+	@printf ${UP}${CUT}
 
 ${NAME}: ${OBJECTS} Makefile
 	@ar -rc ${NAME} ${OBJECTS}
+	@echo "$(GREEN)$(NAME) compiled!$(DEFAULT)"
 
 all: ${NAME}
 

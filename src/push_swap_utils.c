@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/26 22:13:06 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:57:58 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_atol(const char *nptr)
 {

@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/26 21:56:25 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:57:58 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_error_str(char *str)
 {
