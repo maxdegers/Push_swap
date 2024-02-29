@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/28 16:57:58 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:03:53 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 	t_stack_node	*b;
 
 	b = NULL;
+	a = NULL;
 	if (argc < 2 || (argc == 2 && argv[1] == NULL))
 		return (ft_putstr_fd("Error\n", 2), 1);
 	else if (argc == 2)

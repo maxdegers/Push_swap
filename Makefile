@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 16:52:23 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/28 17:01:11 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/29 13:56:33 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ NAME 	=	push_swap
 
 CC 		=	cc
 
-FLAGS =	-Wall -Wextra -Werror -g3
+FLAGS =	-Wall -Wextra -Werror -fsanitize=address -g3
 
 GREEN                   =       \033[1;32m
 BLUE                    =       \033[1;34m
