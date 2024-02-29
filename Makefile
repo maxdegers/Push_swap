@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 16:52:23 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/29 13:56:33 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/29 14:14:08 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,22 +27,22 @@ SRC_D	= src/
 OBJECTS = ${SOURCES:%.c=${OBJ_D}%.o}
 
 HEADER_DIR      =       ./includes
+
 HEADER  =       $(HEADER_DIR)/push_swap.h
-H_D 	= 	.
 
 NAME 	=	push_swap
 
 CC 		=	cc
 
-FLAGS =	-Wall -Wextra -Werror -fsanitize=address -g3
+FLAGS =	-Wall -Wextra -Werror #-fsanitize=address -g3
 
-GREEN                   =       \033[1;32m
-BLUE                    =       \033[1;34m
-RED                             =       \033[1;31m
-YELLOW					=       \033[1;33m
-DEFAULT					       =       \033[0m
-UP					=       "\033[A"
-CUT					         =       "\033[K"
+GREEN					=	\033[1;32m
+BLUE					=	\033[1;34m
+RED						=	\033[1;31m
+YELLOW					=	\033[1;33m
+DEFAULT					=	\033[0m
+UP						=	"\033[A"
+CUT						=	"\033[K"
 
 all:
 	@make --no-print-directory -sC ./libft
