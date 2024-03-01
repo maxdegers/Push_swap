@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/26 22:19:15 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:13:53 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					ft_atol(const char *nptr);
 //node utils
 size_t				ft_listlen(t_stack_node *list);
 t_stack_node		*ft_last_node(t_stack_node **list);
-void				ft_init_stack(t_stack_node **a, char **argv);
+void				ft_init_stack(t_stack_node **a, char **argv, bool t);
 //solve
 int					ft_stack_is_sort(t_stack_node **a);
 void				ft_sort_three(t_stack_node **a);
@@ -57,4 +57,6 @@ void				ft_rra(t_stack_node **a);
 void				ft_rrb(t_stack_node **b);
 void				ft_rrr(t_stack_node **a, t_stack_node **b);
 
+
+void	free_tableau(char **tableau);
 #endif
