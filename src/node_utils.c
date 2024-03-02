@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/01 15:11:02 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:30:53 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	ft_listlen(t_stack_node *list)
 	return (i);
 }
 
-static char	*ft_bin(int nbr)
+char	*ft_bin(int nbr)
 {
 	int		i;
 	char	*binary;
@@ -76,9 +76,6 @@ static int	ft_append_node(t_stack_node **a, int nbr)
 	node->nbr = nbr;
 	node->next = NULL;
 	node->rank = -1;
-	node->b_nbr = ft_bin(nbr);
-	if (!node->b_nbr)
-		return (1);
 	last_node = ft_last_node(a);
 	if (!last_node)
 	{
@@ -92,22 +89,6 @@ static int	ft_append_node(t_stack_node **a, int nbr)
 	}
 	return (0);
 }
-void	free_tableau(char **tableau)
-{
-	for (int i = 0; tableau[i]; i++)
-	{
-		free(tableau[i]);
-	}
-	free(tableau);
-}
-
-void	megafree(t_stack_node **a, char **argv, bool t)
-{
-	ft_free_list(a);
-	if (t == true)
-		free_tableau(argv);
-	exit(1);
-}
 
 void	ft_init_stack(t_stack_node **a, char **argv, bool t)
 {
@@ -118,14 +99,14 @@ void	ft_init_stack(t_stack_node **a, char **argv, bool t)
 	while (argv[i])
 	{
 		if (ft_error_str(argv[i]) != 0)
-			megafree(a, argv, t);
+			ft_megafree(a, argv, t);
 		n = ft_atol(argv[i]);
 		if ((n > INT_MAX || n < INT_MIN) || (ft_error_duplicated(a,
 					(int)n) != 0) || (ft_append_node(a, n) == 1))
-			megafree(a, argv, t);
+			ft_megafree(a, argv, t);
 		i++;
 	}
 	if (t == true)
-		free_tableau(argv);
+		ft_freetab(argv);
 	ft_set_rank(a);
 }

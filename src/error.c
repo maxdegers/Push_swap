@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/29 13:58:59 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:59:42 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,27 @@ int	ft_error_duplicated(t_stack_node **list, int nbr)
 		node = node->next;
 	}
 	return (0);
+}
+
+void	ft_freetab(char **tab)
+{
+	int	i;
+
+	if (tab == NULL)
+		return ;
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+void	ft_megafree(t_stack_node **a, char **argv, bool t)
+{
+	ft_free_list(a);
+	if (t == true)
+		ft_freetab(argv);
+	exit(1);
 }
