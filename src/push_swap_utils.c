@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/02 16:30:29 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/02 16:51:05 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ void	ft_set_rank(t_stack_node **list)
 		tmp = ft_findsm(list);
 		tmp->rank = i;
 		tmp->b_nbr = ft_bin(i);
+		if (tmp->b_nbr == NULL)
+		{
+			ft_free_list(list);
+			exit (0);
+		}
 		i++;
 	}
 }

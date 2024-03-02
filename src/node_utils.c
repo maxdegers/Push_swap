@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/02 16:30:53 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/02 20:02:03 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ size_t	ft_listlen(t_stack_node *list)
 	return (i);
 }
 
-char	*ft_bin(int nbr)
+char	*ft_bin(unsigned int nbr)
 {
 	int		i;
 	char	*binary;
 	int		numbits;
 
-	numbits = 8;
+	numbits = 9;
 	binary = malloc(sizeof(char) * (numbits + 1));
 	if (!binary)
 		return (NULL);
