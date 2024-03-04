@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/02 20:01:48 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:36:55 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ static void	ft_setup(t_stack_node **a, t_stack_node **b)
 	}
 	ft_free_list(a);
 }
+void    print_list(t_stack_node *a, t_stack_node *b) //ave to be remouve
+{    
+    ft_printf("liste A:\n");
+    while (a)
+    {
+        ft_printf("\t%i\t%s\t%i\n", a->nbr, a->b_nbr, a->rank);
+        a = a->next;
+    }
+    ft_printf("liste B:\n");
+    if (!b)
+    {
+        ft_printf("\tNULL\n");
+    }
+    while (b)
+    {
+        ft_printf("\t%i\t%s\n", b->nbr, b->b_nbr);
+        b = b->next;
+    }
+    ft_printf("\n");
+}
 
 int	main(int argc, char **argv)
 {
@@ -56,6 +76,7 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_init_stack(&a, argv + 1, false);
+	print_list(a, b);
 	ft_setup(&a, &b);
 	return (0);
 }

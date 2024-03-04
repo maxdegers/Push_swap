@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/02 15:59:42 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:07:38 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	ft_error_str(char *str)
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]) != 1)
-		{
-			ft_putstr_fd("Error\n", 2);
 			return (1);
-		}
 		i++;
 	}
 	return (0);
@@ -57,10 +54,7 @@ int	ft_error_duplicated(t_stack_node **list, int nbr)
 	while (node != NULL)
 	{
 		if (node->nbr == nbr)
-		{
-			ft_putstr_fd("Error\n", 2);
 			return (1);
-		}
 		node = node->next;
 	}
 	return (0);
@@ -86,5 +80,6 @@ void	ft_megafree(t_stack_node **a, char **argv, bool t)
 	ft_free_list(a);
 	if (t == true)
 		ft_freetab(argv);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

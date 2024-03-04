@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/04 16:31:14 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:51:02 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void				ft_freetab(char **tableau);
 void				ft_megafree(t_stack_node **a, char **argv, bool t);
 //utils
 void				ft_set_rank(t_stack_node **list);
-int					ft_atol(const char *nptr);
+long					ft_atol(const char *nptr);
 //node utils
 char				*ft_bin(unsigned int nbr);
 size_t				ft_listlen(t_stack_node *list);

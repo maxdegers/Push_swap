@@ -6,24 +6,24 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/02 16:51:05 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:57:43 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	int		i;
-	long	tab;
+	long	result;
 	int		sign;
 
 	i = 0;
-	tab = 0;
+	result = 0;
 	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
 		i++;
 	sign = 1;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	if ((nptr[i] == '-' || nptr[i] == '+'))
 	{
 		if (nptr[i] == '-')
 			sign *= -1;
@@ -31,11 +31,11 @@ int	ft_atol(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		tab = tab * 10;
-		tab += (nptr[i] - '0');
+		result = result * 10;
+		result += (nptr[i] - '0');
 		i++;
 	}
-	return (tab * sign);
+	return (result * sign);
 }
 
 static t_stack_node	*find_unrank(t_stack_node **list)
