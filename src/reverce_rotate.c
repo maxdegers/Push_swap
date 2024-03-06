@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:29:31 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/28 16:57:58 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:52:43 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_reverce_rotate(t_stack_node **list)
 	last_node->next = *list;
 	(*list)->prev = last_node;
 	*list = last_node;
-	last_node->prev->next = NULL;
+	(*list)->prev->next = NULL;
 	last_node->prev = NULL;
 }
 
