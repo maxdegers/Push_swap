@@ -6,14 +6,14 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:29 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/04 17:51:02 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/06 17:17:45 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 # include <stdbool.h>
 # include <limits.h>
 
@@ -28,14 +28,14 @@ typedef struct s_stack_node
 
 //error
 t_stack_node		*ft_last_node(t_stack_node **list);
-int					ft_free_list(t_stack_node **list);
+void					ft_free_list(t_stack_node **list);
 int					ft_error_str(char *str);
 int					ft_error_duplicated(t_stack_node **list, int nbr);
 void				ft_freetab(char **tableau);
 void				ft_megafree(t_stack_node **a, char **argv, bool t);
 //utils
 void				ft_set_rank(t_stack_node **list);
-long					ft_atol(const char *nptr);
+long				ft_atol(const char *nptr);
 //node utils
 char				*ft_bin(unsigned int nbr);
 size_t				ft_listlen(t_stack_node *list);

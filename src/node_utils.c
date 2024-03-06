@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:29:59 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/04 18:09:50 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:51:38 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static int	ft_append_node(t_stack_node **a, int nbr)
 	if (!node)
 		return (1);
 	node->nbr = nbr;
+	node->b_nbr = NULL;
 	node->next = NULL;
 	node->rank = -1;
 	last_node = ft_last_node(a);
@@ -104,7 +105,9 @@ void	ft_init_stack(t_stack_node **a, char **argv, bool t)
 			return (ft_megafree(a, argv, t));		
 		n = ft_atol(argv[i]);
 		if ((n > INT_MAX || n < INT_MIN) || (ft_error_duplicated(a,
-					(int)n) != 0) || (ft_append_node(a, n) == 1))
+					(int)n) != 0))
+			return (ft_megafree(a, argv, t));	
+		if (ft_append_node(a, n) == 1)
 			return (ft_megafree(a, argv, t));
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/04 18:07:38 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:41:11 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	ft_error_str(char *str)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
+	int	sign;
 
 	i = 0;
 	if (str[0] == '-')
@@ -25,23 +27,27 @@ int	ft_error_str(char *str)
 			return (1);
 		i++;
 	}
+	j = 0;
+	while (str[j] && str[j] == '0')
+		j++;
+	sign = 1;
+	if (str[0] == '-')
+		sign *= -1;
+	if (i - j >= 10 && ((sign == 1 && ft_strncmp(&str[j], "2147483647", 10) < 0)
+			|| (sign == -1 && ft_strncmp(&str[j + 1], "2147483648", 10) > 0)))
+		return (1);
 	return (0);
 }
 
-int	ft_free_list(t_stack_node **list)
+void	ft_free_list(t_stack_node **list)
 {
-	t_stack_node	*next;
-
-	if (!list || !(*list))
-		return (1);
-	while ((*list) != NULL)
-	{
-		next = (*list)->next;
+	if (!(*list))
+		return ;
+	if ((*list)->b_nbr)
 		free((*list)->b_nbr);
-		free((*list));
-		(*list) = next;
-	}
-	return (0);
+	if ((*list)->next)
+		ft_free_list(&(*list)->next);
+	free((*list));
 }
 
 int	ft_error_duplicated(t_stack_node **list, int nbr)
@@ -64,7 +70,7 @@ void	ft_freetab(char **tab)
 {
 	int	i;
 
-	if (tab == NULL)
+	if (!tab)
 		return ;
 	i = 0;
 	while (tab[i] != NULL)
@@ -77,7 +83,8 @@ void	ft_freetab(char **tab)
 
 void	ft_megafree(t_stack_node **a, char **argv, bool t)
 {
-	ft_free_list(a);
+	if ((*a))
+		ft_free_list(a);
 	if (t == true)
 		ft_freetab(argv);
 	ft_putstr_fd("Error\n", 2);
