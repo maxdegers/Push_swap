@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:29:31 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/06 20:26:51 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:28:47 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 static void	ft_reverce_rotate(t_stack_node **list)
 {
-    t_stack_node *last_node = *list;
-    t_stack_node *prev_node = NULL;
+	t_stack_node	*last_node;
+	t_stack_node	*prev_node;
 
 	if (!(*list) || !(*list)->next)
-        return;
-    while (last_node->next) {
-        prev_node = last_node;
-        last_node = last_node->next;
-    }
-    last_node->next = *list;
-    (*list)->prev = last_node;
-    *list = last_node;
-    prev_node->next = NULL;
+		return ;
+	last_node = *list;
+	prev_node = NULL;
+	while (last_node->next)
+	{
+		prev_node = last_node;
+		last_node = last_node->next;
+	}
+	last_node->next = *list;
+	(*list)->prev = last_node;
+	*list = last_node;
+	prev_node->next = NULL;
 }
 
 void	ft_rra(t_stack_node **a)

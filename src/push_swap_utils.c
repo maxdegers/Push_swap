@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:15:19 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/06 19:00:35 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:26:59 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long	ft_atol(const char *nptr)
 {
 	size_t		i;
-	long	result;
-	int		sign;
+	long		result;
+	int			sign;
 
 	i = 0;
 	result = 0;

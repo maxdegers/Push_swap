@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:05:08 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/06 19:44:37 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:26:37 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_error_str(char *str)
 {
 	size_t	i;
 	size_t	j;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	if (str[0] == '-')
