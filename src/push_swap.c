@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:38:14 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/03/06 20:27:22 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:26:27 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
 	{
 		argv = ft_split(argv[1], ' ');
 		if (!argv || !argv[0])
-			return (ft_putstr_fd("Error\n", 2), 1);
+			return (free(argv), ft_putstr_fd("Error\n", 2), 1);
 		ft_init_stack(&a, argv, true);
 	}
 	else

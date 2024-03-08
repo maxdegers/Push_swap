@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 14:24:49 by mpitot            #+#    #+#              #
-#    Updated: 2024/03/06 17:44:06 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/03/08 13:12:54 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,7 +117,6 @@ all		:	${NAME}
 ${OBJS}	:	${OBJ_D}%.o	:	${SRC_D}%.c ${HEADER}
 	@$(call update_progress,$<)
 	@${CC} ${FLAGS} -c $< -o $@
-	@printf ${UP}${CUT}
 
 ${NAME}	:	${OBJ_D} ${OBJS} Makefile
 	@${AR} ${NAME} ${OBJS}

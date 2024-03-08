@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 16:52:23 by mbrousse          #+#    #+#              #
-#    Updated: 2024/03/06 18:45:16 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/03/08 13:12:28 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ NAME	=	push_swap
 
 CC		=	cc
 
-FLAGS	=	-Wall -Wextra -Werror -g3
+FLAGS	=	-Wall -Wextra -Werror
 
 RED		=	\033[1;31m
 GREEN	=	\033[1;32m
@@ -81,7 +81,6 @@ all		:	libft ${NAME}
 ${OBJS}	:	${OBJ_D}%.o: ${SRC_D}%.c includes/push_swap.h
 	@$(call update_progress,$<)
 	@${CC} ${FLAGS} -I ${HEADER_DIR} -c $< -o $@
-	@printf ${UP}${CUT}
 
 ${NAME}	:	${OBJ_D} ${OBJS} Makefile libft/libft.a
 	@${CC} ${FLAGS} ${OBJS} -o ${NAME}  -L./libft -lft
