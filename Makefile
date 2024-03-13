@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 16:52:23 by mbrousse          #+#    #+#              #
-#    Updated: 2024/03/08 13:12:28 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/03/13 16:26:50 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,10 @@ fclean	:
 
 re		:	fclean .internal_separate all
 
-.PHONY	:	all clean fclean re libft
+leaks	:	all
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+
+.PHONY	:	all clean fclean re libft leaks
 
 .NOTPARALLEL all:
 	@if [ $(CHANGED) -eq 0 ]; then \
